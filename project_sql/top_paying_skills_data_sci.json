@@ -1,0 +1,102 @@
+[
+  {
+    "avg_sal_for_skill": "215477",
+    "skills": "asana"
+  },
+  {
+    "avg_sal_for_skill": "201143",
+    "skills": "airtable"
+  },
+  {
+    "avg_sal_for_skill": "189500",
+    "skills": "redhat"
+  },
+  {
+    "avg_sal_for_skill": "187417",
+    "skills": "watson"
+  },
+  {
+    "avg_sal_for_skill": "170824",
+    "skills": "elixir"
+  },
+  {
+    "avg_sal_for_skill": "170500",
+    "skills": "lua"
+  },
+  {
+    "avg_sal_for_skill": "168219",
+    "skills": "slack"
+  },
+  {
+    "avg_sal_for_skill": "166980",
+    "skills": "solidity"
+  },
+  {
+    "avg_sal_for_skill": "166500",
+    "skills": "ruby on rails"
+  },
+  {
+    "avg_sal_for_skill": "166436",
+    "skills": "rshiny"
+  },
+  {
+    "avg_sal_for_skill": "165636",
+    "skills": "notion"
+  },
+  {
+    "avg_sal_for_skill": "164500",
+    "skills": "objective-c"
+  },
+  {
+    "avg_sal_for_skill": "163971",
+    "skills": "neo4j"
+  },
+  {
+    "avg_sal_for_skill": "163111",
+    "skills": "dplyr"
+  },
+  {
+    "avg_sal_for_skill": "160868",
+    "skills": "hugging face"
+  },
+  {
+    "avg_sal_for_skill": "160581",
+    "skills": "dynamodb"
+  },
+  {
+    "avg_sal_for_skill": "157500",
+    "skills": "haskell"
+  },
+  {
+    "avg_sal_for_skill": "156881",
+    "skills": "unity"
+  },
+  {
+    "avg_sal_for_skill": "155878",
+    "skills": "airflow"
+  },
+  {
+    "avg_sal_for_skill": "154684",
+    "skills": "codecommit"
+  },
+  {
+    "avg_sal_for_skill": "153278",
+    "skills": "unreal"
+  },
+  {
+    "avg_sal_for_skill": "153133",
+    "skills": "theano"
+  },
+  {
+    "avg_sal_for_skill": "151677",
+    "skills": "zoom"
+  },
+  {
+    "avg_sal_for_skill": "149292",
+    "skills": "bigquery"
+  },
+  {
+    "avg_sal_for_skill": "148715",
+    "skills": "atlassian"
+  }
+]
