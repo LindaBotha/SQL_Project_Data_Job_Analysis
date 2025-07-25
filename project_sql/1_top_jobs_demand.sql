@@ -1,5 +1,26 @@
 /*
-Question: What are the top paying data scientist jobs?
+My Question: Which kind of data jobs have the highest demand? 
+-Identify the top 3 careers in data analysis/science based on the number of postings.
+*/
+
+SELECT
+    COUNT (job_id) As num_of_posts,
+    job_title_short
+FROM
+    job_postings_fact
+GROUP BY
+    job_title_short
+ORDER BY
+    num_of_posts DESC;
+
+
+
+
+
+
+
+/*
+Practice Question: What are the top paying data scientist jobs?
 -Identify the top 10 highest paying Data Scientist roles that are available remotely.
 -Focuses on job postings with specified salaries (remove NULLs)
 -Why? HIghlight top-paying opportunities for Data Scientists and offer insights into the employment landscape
