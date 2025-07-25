@@ -40,10 +40,9 @@ ORDER BY
     num_of_posts DESC;
 ```
 ![Top data science roles](assets/1_demand.png)
-
 *Bar chart visualizing the number job postings per role *
 
-
+From this data, there are signifcantly more postings for Data Analysts, Engineers and Scientsts, with senior levels of these, as well as other specialized positons having only about ~ 20 % of the available positions comapred to the top three. Since I am new to the world of data, I am not concerned about senior or specialized positions, so I decided to limit my further queries to the top 3 roles ranked by demand.
 
 | Rank | **Job Title**                | **Number of Posts** |
 |------|------------------------------|----------------------|
@@ -58,6 +57,7 @@ ORDER BY
 | 9    | **Machine Learning Engineer**| **14,106**           |
 | 10   | **Cloud Engineer**           | **12,346**           |
 
+I am interested in remote work, so next I wanted to evaluate how remote work opportunities were distributed between these positions.
 
 # What I learned
 
