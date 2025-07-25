@@ -39,7 +39,7 @@ GROUP BY
 ORDER BY
     num_of_posts DESC;
 ```
-![Top jobs in data science by category](assets\num_jobs_per_role.jpg)
+![Top data science roles](assets\1_demand.png)
 
 *Bar chart visualizing the number job postings per role *
 
