@@ -13,6 +13,20 @@ GROUP BY
 ORDER BY
     num_of_posts DESC;
 
+/*
+Sub-question: How are remote jobs distributed between various data job types?*/
+
+SELECT
+    COUNT (job_id) As num_of_posts,
+    job_title_short
+FROM
+    job_postings_fact
+WHERE
+    job_location = 'Anywhere'
+GROUP BY
+    job_title_short
+ORDER BY
+    num_of_posts DESC;
 
 
 
