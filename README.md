@@ -53,9 +53,9 @@ directly preceding the 'GROUP BY' statement.
 ![Top remote data science roles](assets/1_demand_remote.png)
 *Bar chart visualizing the number of remote job postings per role*
 
-| **Total number of data job postings per job type**         |               
-|------|------------------------------|----------------------|                     
-| Rank | **Job Title**                | **Number of Posts**  |               
+| **Total number of data job postings per job type**         |
+|------|------------------------------|----------------------|
+| Rank | **Job Title**                | **Number of Posts**  |
 |------|------------------------------|----------------------|
 | 1    | **Data Analyst**             | **196,593**          |
 | 2    | **Data Engineer**            | **186,679**          |
@@ -68,8 +68,8 @@ directly preceding the 'GROUP BY' statement.
 | 9    | **Machine Learning Engineer**| **14,106**           |
 | 10   | **Cloud Engineer**           | **12,346**           |
 
-| **Total number of remote data job postings per job type**  |               
-|------|------------------------------|----------------------|  
+| **Total number of remote data job postings per job type**  |
+|------|------------------------------|----------------------|
 | Rank | **Job Title**                | **Number of Posts**  |
 |------|------------------------------|----------------------|
 | 1    | **Data Engineer**            | **21,261**           |
@@ -113,7 +113,7 @@ LIMIT 10;
 ```
 Replacing the job title in subsequent queries to provide a comparable breakdown.
 
-![Top Data Engineer skills](assets\Data Eng_skills.png)
+![Top Data Engineer skills](assets/Data Eng_skills.png)
 *Pie chart visualizing the top skills required in Data Engineering postings*
 
 ![Top Data Scientist skills](assets\Data Sci_skills.png)
@@ -121,7 +121,6 @@ Replacing the job title in subsequent queries to provide a comparable breakdown.
 
 ![Top Data Analyst skills](assets\Data Ana_skills.png)
 *Pie chart visualizing the top skills required in Data Analyst postings*
-
 
 
 # What I learned
