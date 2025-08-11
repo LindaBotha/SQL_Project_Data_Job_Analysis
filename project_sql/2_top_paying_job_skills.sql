@@ -1,3 +1,32 @@
+/* My query: What are the skills required for the top 3 data jobs?*/
+
+SELECT 
+        COUNT (job_postings_fact.job_id) AS num_jobs_per_skill,
+        skills_dim.skills,
+        skills_dim.type
+FROM job_postings_fact
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE 
+        job_title_short IN ('Data Analyst') AND
+        job_location = 'Anywhere' AND
+        salary_year_avg IS NOT NULL
+GROUP BY 
+skills,
+type
+ORDER BY
+num_jobs_per_skill DESC
+LIMIT 10;
+
+  
+
+
+
+
+
+
+
+
 /*
 Question: What skills are required for the top=paying data analyst jobs?
 -Use the top 10 highest paying Data Analsyt jobs from the first query
