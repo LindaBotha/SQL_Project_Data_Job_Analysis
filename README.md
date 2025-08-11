@@ -47,41 +47,39 @@ WHERE
 ```
 directly preceding the 'GROUP BY' statement.
 
-![Top data science roles](assets/1_demand_all.png)
-*Bar chart visualizing the number of job postings per role*
+![Top data science roles](assets/1_demand_all.png)              ![Top remote data science roles](assets/1_demand_remote.png)
+*Bar chart visualizing the number of job postings per role*     *Bar chart visualizing the number of remote job postings per role*
 
-![Top remote data science roles](assets/1_demand_remote.png)
-*Bar chart visualizing the number of remote job postings per role*
 
-| **Total number of data job postings per job type**         |
-|------|------------------------------|----------------------|
-| Rank | **Job Title**                | **Number of Posts**  |
-|------|------------------------------|----------------------|
-| 1    | **Data Analyst**             | **196,593**          |
-| 2    | **Data Engineer**            | **186,679**          |
-| 3    | **Data Scientist**           | **172,726**          |
-| 4    | **Business Analyst**         | **49,160**           |
-| 5    | **Software Engineer**        | **45,019**           |
-| 6    | **Senior Data Engineer**     | **44,692**           |
-| 7    | **Senior Data Scientist**    | **37,076**           |
-| 8    | **Senior Data Analyst**      | **29,289**           |
-| 9    | **Machine Learning Engineer**| **14,106**           |
-| 10   | **Cloud Engineer**           | **12,346**           |
 
-| **Total number of remote data job postings per job type**  |
-|------|------------------------------|----------------------|
-| Rank | **Job Title**                | **Number of Posts**  |
-|------|------------------------------|----------------------|
-| 1    | **Data Engineer**            | **21,261**           |
-| 2    | **Data Scientist**           | **14,534**           |
-| 3    | **Data Analyst**             | **13,331**           |
-| 4    | **Senior Data Engineer**     | **6,564**            |
-| 5    | **Senior Data Scientist**    | **3,809**            |
-| 6    | **Software Engineer**        | **2,918**            |
-| 7    | **Business Analyst**         | **2,786**            |
-| 8    | **Senior Data Analyst**      | **2,352**            |
-| 9    | **Machine Learning Engineer**| **1,480**            |
-| 10   | **Cloud Engineer**           | **571**              |
+**Total number of data job postings per job type**
+| Rank | Job Title | Number of Posts |
+|------|-----------|-----------------|
+| 1 | Data Analyst | 196,593 |
+| 2 | Data Engineer | 186,679 |
+| 3 | Data Scientist | 172,726 |
+| 4 | Business Analyst | 49,160 |
+| 5 | Software Engineer | 45,019 |
+| 6 | Senior Data Engineer | 44,692 |
+| 7 | Senior Data Scientist | 37,076 |
+| 8 | Senior Data Analyst | 29,289 |
+| 9 | Machine Learning Engineer | 14,106 |
+| 10 | Cloud Engineer | 12,346 |
+
+**Total number of data job postings per job type**
+| Rank | Job Title | Number of Posts |
+|------|-----------|-----------------|
+| 1 | Data Engineer | 21,261 |
+| 2 | Data Scientist | 14,534 |
+| 3 | Data Analyst | 13,331 |
+| 4 | Senior Data Engineer | 6,564 |
+| 5 | Senior Data Scientist | 3,809 |
+| 6 | Software Engineer | 2,918 |
+| 7 | Business Analyst | 2,786 |
+| 8 | Senior Data Analyst | 2,352 |
+| 9 | Machine Learning Engineer | 1,480 |
+| 10 | Cloud Engineer | 571 |
+
 
 From this data, there's a significant number postings for Data Analysts, Data Engineers and Data Scientsts, with senior levels of these, as well as other specialized positons having only about ~ 20 % of the available positions compared to the top 3. Since I am new to the world of data, I am not concerned about senior or specialized positions, so I decided to limit my subsequent queries to the top 3 roles ranked by demand. The top 3 roles are also the most abundant in the remote job subset but the breakdown changes slightly, where Data Engineers have signifcantly more remote job opportunities than Data Scientists or Data Analysts. Remote jobs represent only about 5-10 % of the total available jobs, suggesting a general preference for a physical presence or hybrid work arrangement by companies offering data jobs. 
 
@@ -113,13 +111,11 @@ LIMIT 10;
 ```
 Replacing the job title in subsequent queries to provide a comparable breakdown.
 
-![Top Data Engineer skills](assets/Data Eng_skills.png)
-*Pie chart visualizing the top skills required in Data Engineering postings*
+![Top Data Engineer skills](assets/Data_Eng_skills.png)            ![Top Data Scientist skills](assets/Data_Sci_skills.png)
+*Pie chart for top Data Engineer skills*                            *Pie chart for top Data Scientist skills* 
+                          
 
-![Top Data Scientist skills](assets\Data Sci_skills.png)
-*Pie chart visualizing the top skills required in Data Science postings*
-
-![Top Data Analyst skills](assets\Data Ana_skills.png)
+![Top Data Analyst skills](assets/Data_Ana_skills.png)
 *Pie chart visualizing the top skills required in Data Analyst postings*
 
 
