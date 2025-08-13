@@ -47,10 +47,10 @@ WHERE
 ```
 directly preceding the 'GROUP BY' statement.
 
-![Top data science roles](assets/1_demand_all.png)              
+<img src="assets/1_demand_all.png" alt="Top data jobs" width="50%">
 *Bar chart visualizing the number of job postings per role*     
 
-![Top remote data science roles](assets/1_demand_remote.png)
+<img src="assets/1_demand_remote.png" alt="Top remote data jobs" width="50%">
 *Bar chart visualizing the number of remote job postings per role*
 
 **Total number of data job postings per job type**
@@ -113,18 +113,18 @@ LIMIT 10;
 Replacing the job title in subsequent queries to provide a comparable breakdown.
 Removing the limit in each case revealed 155 (Data Engineer), 153 (Data Scientist) and 120 (Data Analyst) unique skills as described in the job postings for each job category.
 From this data, I drew up a quick histogram to determine a reasonable cutoff for zooming in on the skills most freqenstly requested, which was around 7 in all 3 cases.
-![Histogram for skills breakdown](assets/2_histogram.png)
+<img src="assets/2_histogram.png" alt="Histogram for skills breakdown" width="50%">
 *An example of the histogram for the data engineer job postings*
 
 Comparing the pie charts for each job type, it is clear that there's some overlap in the positions, with the Data Engineer skills mostly focused on programming (green), cloud (blue) and library (grey) skills, highlighting the importance of cloud infrastructure knowledge and big data/scalable processing methods.  The Data Analyst skills are mostly related to analysis tools (orange) and some programming skills, highlighting expertise in data visualization and manipulation.  The Data Scientist skill set represents a combination of the above, mostly focused on programming skills, but also requiring some breadth extending to data visualization and cloud skills.
 
-![Top Data Engineer skills](assets/2_Data_Eng_skills.png)           
+<img src="assets/2_Data_Eng_skills.png" alt="Top Data Engineer skills" width="50%">
 *Pie chart visualizing the top skills required in Data Engineer postings* 
 
-![Top Data Scientist skills](assets/2_Data_Sci_skills.png)
+<img src="assets/2_Data_Sci_skills.png" alt="Top Data Scientist skills" width="50%">
 *Pie chart visualizing the top skills required in Data Scientist postings* 
                       
-![Top Data Analyst skills](assets/2_Data_An_skills.png)
+<img src="assets/2_Data_An_skills.png" alt="Top Data Analyst skills" width="50%">
 *Pie chart visualizing the top skills required in Data Analyst postings*
 
 ### 3. What is the optimum career target at the intersection of demand (job availability) and skills required (my interest and transferability of prior experience)?
@@ -160,13 +160,47 @@ ORDER BY avg_sal_for_skill DESC
 | Elasticsearch | $145,000 |
 
 ![Highest earning data analyst skills](assets/4_avg_sal_skill.png)
-Interestingly, the top earning skills had an impressive related average salary of ~$200,000 e.g. PySpark and Bitbucket. As a newbie to the field, these were rather obscure, so I consulted Claude.ai which revealed that PySpark is used in big data processing, allowing for the use of the more common Python language as well as real-time streaming data processing and machine learning at scale, whereas Bitbucket is a web-based version control repository (like GitHub) but with a stronger enterprise focus. A quick Excel search indicated that these skills only showed up in 1 or 2 job postings, so these are highly specialized and therefore not suitable to develop initially as skills. I also found the most abundant skills (based on the number of postings) quite close to the average salary distribution of $100,000, confirming that these would be more than adequate to start developing. I could do a further sql query to remove the jobs with a limited number of postings, which is something I will explore in future - nesting a query within another query.
+Interestingly, the top earning skills had an impressive related average salary of ~$200,000 e.g. PySpark and Bitbucket. As a newbie to the field, these were rather obscure, so I consulted Claude.ai which revealed that PySpark is used in big data processing, allowing for the use of the more common Python language as well as real-time streaming data processing and machine learning at scale. Bitbucket is a web-based version control repository (like GitHub) but with a stronger enterprise focus. A quick Excel search indicated that these skills only showed up in 1 or 2 job postings, so these are highly specialized and therefore not suitable to develop initially as skills. I also found that job postings containing the most frequently cited skills were centered around the average salary distribution of $100,000, confirming that these would be more than adequate to start developing. 
 
-# What I learned
+### 5. What are the most optimal skills to start learning? (high demand and high paying)
+ Building further in the quick insight I gained from just viewing that data in Excel, I wanted to see whether there was a way to combine queries in SQL so I could still focus on high paying skills, however ones that were not as obscure or specialized, in order to equip me for the widest array of potential jobs.
+ In order to do this, I combined the sum of the available jobs and average salary aggregations, though joining skills and job postings tables, but also added a HAVING clause on teh aggregated data to filter out any jobs with fewer than 100 postings (just an arbitrary number, but considering the total number of postings fulfilling the remote Data Analyst requirements, this still represented ~ 96 % of the job postings, with only 4% of the niche skills removed).
 
+``` sql
+SELECT
+    skills_dim.skills,
+    COUNT (skills_job_dim.job_id) AS num_jobs_for_skill,
+    ROUND(AVG(job_postings_fact.salary_year_avg),0) AS avg_salary
+FROM job_postings_fact
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE
+    job_title_short = 'Data Analyst'
+    AND salary_year_avg IS NOT NULL
+    AND job_location = 'Anywhere'
+GROUP BY
+    skills_dim.skill_id
+HAVING (COUNT (skills_job_dim.job_id))> 100
+ORDER BY
+    avg_salary DESC
+```
+
+**Highest paying and most abundant skills for a Data Analyst**
+| Skill | Number of Jobs | Average Salary |
+|-------|----------------|----------------|
+| Python | 236 | $101,397 |
+| R | 148 | $100,499 |
+| Tableau | 230 | $99,288 |
+| Power BI | 110 | $97,431 |
+| SQL | 398 | $97,237 |
+| Excel | 256 | $87,288 |
+
+From the above table, Python and R are close competitors for the top earning spot, where Python is more widely applied, looking at the number of available jobs citing this skill and better for big data and machine learning applications. R, hwoever, is more specialized and frequently used in academia or research for statistical analysis and visualization. For now, I have decided to prioritize Python due to its wider applicability, however I will also look into R in future as I am interested in statistical evaluation of data and have been doing that informally in my research work to date, although not using specific coding languages, yet.
+Following the programming skills are Tableau and Power BI for data visualization. While Tableau leads in the number of job postings, Power BI is less expensive and specialized. For this reason, as well as the fact that I have some basic experience with Power BI, I plan to start expanding my experience with Power BI first.
 
 # Conclusions
-## Insights
-
+This was a fun project to learn about the data jobs available in the job market. The databases and instructions (thanks Luke! https://www.lukebarousse.com/) were very useful to start developing an understanding of what the different positions entail, earn and require in terms of skill set. This allowed me to tailor my queries to answer questions relating to my particular topics of interest. I was suprised to see a relatively large number of specific skills required (120-160) for the various types of data jobs and these weren't even the senior or specialized roles. This, along with multiple options for similar types of skills, indicates some industry segmentation and less standardization. As a newcomer to this field, the overwhelming number of technical skills and jargon can be quite intimidating, which is why I found to focus on the numbers more reassuring. By not getting caught in the weeds of the jargon, but applying my science background to cut down on the noise (even for high paying unicorns) I could find a more cohesive story and solidify important skills to focus on for my Data Analysis journey. I confirmed that learning a skill like SQL is very useful for this kind of position, which I will further append with data visualization skills (Power BI) and programming language (Python). Since these skills are also required for Data Science, that will be a good baseline for me to add cloud skills (AWS) and complemenet my programming experience with something like R for specialized statistical evaluation in the longer term.
+ 
 
 ## Closing thoughts
+The data industry is very dynamic, especially with the rapid development of AI capabilities, so the challenge remains how to best work with the technological resources available to optimize analysis time and output. For this particular project, the database was relatively dated (from 2023), so an additional challenge would be to get more recent job postings data and determine whether the same trends hold, or whether some shifts have occurred. To do this, I would have to build my own databases, which would require a whole new skill set - a challenge for another day!
