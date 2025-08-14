@@ -21,6 +21,7 @@ I am a polymer scientist with extensive experience in handling data, but no expe
 - **PostgreSQL** as the database management system
 - **Visual Studio Code** as the integrated development environment (IDE)
 - **Git & GitHub** as the version control system and interface for sharing results
+- **ChatGPT & Claude** as AI assistants to learn more about the data landscape and assist with markdown formatting
 
 # The Analysis
 Each query in this project was aimed at answering the 5 questions as outlined above:
